@@ -1,0 +1,16 @@
+{
+  "id": "acb1a0c3-660f-4761-9f3c-9db246db1a76",
+  "title": "TEST",
+  "description": "TEST",
+  "category": "general",
+  "status": "idea",
+  "priority": "medium",
+  "created_at": "2025-09-28T21:45:51.215Z",
+  "updated_at": "2025-09-28T21:45:51.215Z",
+  "author_pubkey": "w3ase343kdnbtp4y3x69qd1qyt8peyrdtkhf671ujucc9i8fge6y",
+  "pubky_path": "/pub/roadky-app/features/acb1a0c3-660f-4761-9f3c-9db246db1a76.json",
+  "votes": 0,
+  "voters": [],
+  "indexed_at": "2025-09-28T21:45:51.215Z",
+  "last_sync": "2025-09-28T21:45:51.215Z"
+}
