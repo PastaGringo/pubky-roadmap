@@ -52,7 +52,10 @@ export default function Home() {
             that will define the future of Pubky, the next-generation decentralized infrastructure.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-200 flex items-center justify-center gap-2 shadow-lg">
+            <button 
+              onClick={() => user ? setShowCreateModal(true) : setShowLoginModal(true)}
+              className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-200 flex items-center justify-center gap-2 shadow-lg"
+            >
               Propose a Pubky feature
             </button>
             <button 
@@ -106,7 +109,7 @@ export default function Home() {
             ) : (
               <button
                 onClick={() => setShowLoginModal(true)}
-                className="bg-white text-slate-900 hover:bg-slate-100 px-8 py-3 rounded-lg font-semibold transition-colors"
+                className="bg-white text-slate-900 hover:bg-slate-100 px-4 py-2 sm:px-6 sm:py-3 rounded-lg font-semibold transition-colors text-sm sm:text-base"
               >
                 Connect with Pubky Ring
               </button>
@@ -164,7 +167,7 @@ export default function Home() {
               <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
                 <TrendingUpIcon className="w-5 h-5 text-white" />
               </div>
-              <span className="text-lg font-semibold text-slate-900 dark:text-white">Pubky RoadMap</span>
+              <span className="text-lg font-semibold text-slate-900 dark:text-white">Roadky</span>
             </div>
             <div className="flex items-center space-x-6 text-sm text-slate-600 dark:text-slate-400">
               <a href="#" className="hover:text-slate-900 dark:hover:text-white transition-colors">About</a>
@@ -173,7 +176,7 @@ export default function Home() {
             </div>
           </div>
           <div className="mt-8 pt-8 border-t border-slate-200 dark:border-slate-700 text-center text-sm text-slate-500 dark:text-slate-400">
-            2024 Pubky RoadMap. Built with ❤️ for the Pubky community.
+            2024 Roadky. Built with ❤️ for the Pubky community.
           </div>
         </div>
       </footer>

@@ -30,6 +30,24 @@ const priorities = [
   'critical'
 ];
 
+const applications = [
+  'None',
+  'pubky-app',
+  'pubky-explorer',
+  'franky',
+  'pubky-core',
+  'pubky-ring',
+  'pkarr',
+  'pkdns',
+  'pubky-nexus',
+  'atomicity',
+  'pubky-app-specs',
+  'pubky-docker',
+  'ai-rand',
+  'pubky-notes',
+  'pubme'
+];
+
 export default function CreateFeatureModal({ isOpen, onClose, onFeatureCreated }) {
   const { user } = useAuth();
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -38,14 +56,16 @@ export default function CreateFeatureModal({ isOpen, onClose, onFeatureCreated }
     description: '',
     category: 'general',
     status: 'idea',
-    priority: 'medium'
+    priority: 'medium',
+    application: 'None',
+    bounty: false
   });
 
   const handleInputChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value, type, checked } = e.target;
     setFormData(prev => ({
       ...prev,
-      [name]: value
+      [name]: type === 'checkbox' ? checked : value
     }));
   };
 
@@ -92,7 +112,9 @@ export default function CreateFeatureModal({ isOpen, onClose, onFeatureCreated }
         description: '',
         category: 'general',
         status: 'idea',
-        priority: 'medium'
+        priority: 'medium',
+        application: 'None',
+        bounty: false
       });
 
       // Fermer la modal
@@ -179,7 +201,7 @@ export default function CreateFeatureModal({ isOpen, onClose, onFeatureCreated }
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {/* Category */}
               <div>
                 <label htmlFor="category" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
@@ -196,6 +218,27 @@ export default function CreateFeatureModal({ isOpen, onClose, onFeatureCreated }
                   {categories.map(category => (
                     <option key={category} value={category}>
                       {category.charAt(0).toUpperCase() + category.slice(1).replace('-', ' ')}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              {/* Application */}
+              <div>
+                <label htmlFor="application" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+                  Application
+                </label>
+                <select
+                  id="application"
+                  name="application"
+                  value={formData.application}
+                  onChange={handleInputChange}
+                  className="w-full px-4 py-3 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors"
+                  disabled={isSubmitting}
+                >
+                  {applications.map(application => (
+                    <option key={application} value={application}>
+                      {application}
                     </option>
                   ))}
                 </select>
@@ -244,6 +287,68 @@ export default function CreateFeatureModal({ isOpen, onClose, onFeatureCreated }
                   ))}
                 </select>
               </div>
+            </div>
+
+            {/* Bounty Checkbox - Enhanced */}
+            <div className={`p-4 rounded-xl border-2 transition-all ${
+              formData.bounty 
+                ? 'border-yellow-400 bg-gradient-to-r from-yellow-50 to-amber-50 dark:from-yellow-900/20 dark:to-amber-900/20 shadow-lg' 
+                : 'border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 hover:border-yellow-300 dark:hover:border-yellow-600'
+            }`}>
+              <div className="flex items-start space-x-4">
+                <div className="flex items-center">
+                  <input
+                    type="checkbox"
+                    id="bounty"
+                    name="bounty"
+                    checked={formData.bounty}
+                    onChange={handleInputChange}
+                    className="w-6 h-6 text-yellow-600 bg-white dark:bg-slate-700 border-2 border-yellow-400 rounded-lg focus:ring-yellow-500 focus:ring-2 transition-all"
+                    disabled={isSubmitting}
+                  />
+                </div>
+                <div className="flex-1">
+                  <label htmlFor="bounty" className={`block text-base font-semibold cursor-pointer transition-colors ${
+                    formData.bounty 
+                      ? 'text-yellow-800 dark:text-yellow-200' 
+                      : 'text-slate-700 dark:text-slate-300 hover:text-yellow-700 dark:hover:text-yellow-300'
+                  }`}>
+                    💰 Bounty Feature
+                  </label>
+                  <p className={`text-sm mt-1 ${
+                    formData.bounty 
+                      ? 'text-yellow-700 dark:text-yellow-300' 
+                      : 'text-slate-500 dark:text-slate-400'
+                  }`}>
+                    Mark this feature as a bounty to highlight it with special styling and attract more attention from contributors.
+                  </p>
+                  {formData.bounty && (
+                    <div className="mt-2 flex items-center space-x-2 text-sm text-yellow-700 dark:text-yellow-300">
+                      <span className="inline-flex items-center px-2 py-1 rounded-full bg-yellow-200 dark:bg-yellow-800 text-yellow-800 dark:text-yellow-200 font-medium">
+                        ✨ Bounty Active
+                      </span>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+
+            {/* Add Application Message */}
+            <div className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 p-4 rounded-lg border border-blue-200 dark:border-blue-800">
+              <h3 className="text-sm font-medium text-slate-700 dark:text-slate-300 mb-2 flex items-center">
+                📱 Want to add a new application?
+              </h3>
+              <p className="text-sm text-slate-600 dark:text-slate-400 mb-3">
+                If you want to add a new application to the list, please open an issue on GitHub.
+              </p>
+              <a
+                href="https://github.com/PastaGringo/pubky-roadmap/issues/new"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-lg transition-colors"
+              >
+                🐙 Open GitHub Issue
+              </a>
             </div>
 
             {/* Storage Information */}

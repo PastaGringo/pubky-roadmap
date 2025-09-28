@@ -62,7 +62,9 @@ export async function POST(request) {
       description: body.description,
       category: body.category,
       status: body.status,
-      priority: body.priority
+      priority: body.priority,
+      application: body.application,
+      bounty: body.bounty
     });
     
     if (result.success) {
