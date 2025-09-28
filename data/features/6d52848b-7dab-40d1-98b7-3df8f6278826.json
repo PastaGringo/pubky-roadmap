@@ -1,0 +1,16 @@
+{
+  "id": "6d52848b-7dab-40d1-98b7-3df8f6278826",
+  "title": "Test bounty",
+  "description": "coucou",
+  "category": "general",
+  "status": "idea",
+  "priority": "medium",
+  "created_at": "2025-09-28T22:10:29.790Z",
+  "updated_at": "2025-09-28T22:10:29.790Z",
+  "author_pubkey": "w3ase343kdnbtp4y3x69qd1qyt8peyrdtkhf671ujucc9i8fge6y",
+  "pubky_path": "/pub/roadky-app/features/6d52848b-7dab-40d1-98b7-3df8f6278826.json",
+  "votes": 0,
+  "voters": [],
+  "indexed_at": "2025-09-28T22:10:29.790Z",
+  "last_sync": "2025-09-28T22:10:29.790Z"
+}

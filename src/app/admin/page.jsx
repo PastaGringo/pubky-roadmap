@@ -287,7 +287,7 @@ export default function AdminPage() {
               </a>
             </div>
             <p className="text-slate-500 dark:text-slate-400 text-sm">
-              © 2024 Pubky RoadMap. Decentralized feature voting for the Pubky ecosystem.
+              © 2024 Roadky. Decentralized feature voting for the Pubky ecosystem.
             </p>
           </div>
         </div>

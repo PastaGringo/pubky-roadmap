@@ -11,7 +11,7 @@ const featureService = new FeatureService();
  */
 export async function createFeature(req, res) {
   try {
-    const { userPubkey, title, description, category, status, priority } = req.body;
+    const { userPubkey, title, description, category, status, priority, application, bounty } = req.body;
 
     // Validation des données
     if (!userPubkey || !title || !description) {
@@ -26,7 +26,9 @@ export async function createFeature(req, res) {
       description,
       category,
       status,
-      priority
+      priority,
+      application,
+      bounty
     });
 
     if (result.success) {

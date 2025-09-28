@@ -40,6 +40,8 @@ class FeatureService {
       category: featureData.category || 'general',
       status: featureData.status || 'idea',
       priority: featureData.priority || 'medium',
+      application: featureData.application || 'None',
+      bounty: featureData.bounty || false,
       created_at: now,
       updated_at: now,
       author_pubkey: userPubkey,

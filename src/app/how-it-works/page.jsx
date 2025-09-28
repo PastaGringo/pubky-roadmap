@@ -31,7 +31,7 @@ export default function HowItWorksPage() {
             🔧 How it works?
           </h1>
           <p className="text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
-            Discover the decentralized architecture of Pubky RoadMap and how your data is managed securely and transparently.
+            Discover the decentralized architecture of Roadky and how your data is managed securely and transparently.
           </p>
         </div>
 

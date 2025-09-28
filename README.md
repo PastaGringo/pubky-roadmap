@@ -1,4 +1,4 @@
-# Pubky RoadMap
+# Roadky
 
 A decentralized voting platform for the Pubky ecosystem, built with Next.js and Pubky Ring authentication.
 
@@ -121,7 +121,7 @@ Create `.env.local`:
 
 ```env
 # Optional: Custom configuration
-NEXT_PUBLIC_APP_NAME="Pubky RoadMap"
+NEXT_PUBLIC_APP_NAME="Roadky"
 ```
 
 ## 🤝 Contributing
